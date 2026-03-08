@@ -13,10 +13,7 @@ const loadVideos = () => {
 }
 
 const loadCategoryVideos = (id) => {
-    fetch(`https://openapi.programming-hero.com/api/phero-tube/category/${id}`)
-      .then((res) => res.json())
-      .then((data) => displayVideos(data.category));
-    // console.log('id pass',id)
+    console.log('id pass',id)
 }
 
 

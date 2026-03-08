@@ -12,22 +12,14 @@ const loadVideos = () => {
       .then((data) => displayVideos(data.videos));
 }
 
-const loadCategoryVideos = (id) => {
-    fetch(`https://openapi.programming-hero.com/api/phero-tube/category/${id}`)
-      .then((res) => res.json())
-      .then((data) => displayVideos(data.category));
-    // console.log('id pass',id)
-}
-
 
 // category data display
 const displayCategories = (categories) => {
-    // console.log(categories)
     const categoryContainer = document.getElementById("category-container");
     for (let cat of categories) {
         const categoryDiv = document.createElement("Div");
         categoryDiv.innerHTML = `
-        <button class="btn btn-sm  hover:bg-[#FF1F3D] hover:text-white" onclick="loadCategoryVideos(${cat.category_id})">${cat.category}</button>
+        <button class="btn btn-sm hover:bg-[#FF1F3D] hover:text-white">${cat.category}</button>
         `;
 
         categoryContainer.append(categoryDiv)
@@ -39,16 +31,16 @@ const displayCategories = (categories) => {
 // video data display
 
 const displayVideos = (videos) => {
+    console.log(videos[0])
     const videoContainer = document.getElementById("video-container");
-    videoContainer.innerHTML = "";
 
     videos.forEach(video => {
         const videoDiv = document.createElement('div');
         videoDiv.innerHTML = `
           <div class="card bg-base-100 px-0 shadow-md">
             <figure class="relative">
-                <img class="w-full h-[250px] object-cover"
-                src=${video.authors[0].profile_picture}"
+                <img
+                src=${video.authors[0]}"
                 alt="Shoes" />
                 <span class="absolute text-white bottom-2 right-2 bg-black px-2 rounded-md">3hr 36 Minutes</span>
             </figure>
@@ -77,4 +69,4 @@ const displayVideos = (videos) => {
 
 
 categoryDataLoad();
-// loadVideos();
+loadVideos();
