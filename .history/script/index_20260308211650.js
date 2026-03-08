@@ -44,7 +44,7 @@ const displayVideos = (videos) => {
                 alt="Shoes" />
                 <span class="absolute text-white bottom-2 right-2 bg-black px-2 rounded-md">3hr 36 Minutes</span>
             </figure>
-            <div class="flex gap-4 mt-5 p-4">
+            <div class="flex gap-4 mt-5">
                 <div class="profile">
                     <div class="avatar">
                         <div class="ring-primary ring-offset-base-100 w-8 rounded-full ring-2 ring-offset-2">

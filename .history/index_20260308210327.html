@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>PH-Tube</title>
+
+</head>
+<body class="w-11/12 mx-auto">
+    
+    <header>
+        <nav class="flex justify-between py-5 border-b-2 border-[#17171720]">
+            <div><img src="assets/Logo.png" alt=""></div>
+            <div><button class="btn">Sort by view</button></div>
+            <div><button class="btn bg-[#FF1F3D] py-2 px-2 rounded-md font-semibold text-white">Blogs</button></div>
+        </nav>
+    </header>
+    <nav id="category-container" class="py-5 flex justify-center gap-2">
+        
+           <div>
+             <button class="btn btn-sm bg-[#FF1F3D] hover:bg-[black] text-white">All</button>
+           </div>
+        
+
+    </nav>
+
+    <section id="video-container">
+
+        <div class="card bg-base-100 w-96 px-0">
+            <figure class="relative">
+                <img
+                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                alt="Shoes" />
+                <span class="absolute text-white bottom-2 right-2 bg-black px-2 rounded-md">3hr 36 Minutes</span>
+            </figure>
+            <div class="flex gap-4 mt-5">
+                <div class="profile">
+                    <div class="avatar">
+                        <div class="ring-primary ring-offset-base-100 w-8 rounded-full ring-2 ring-offset-2">
+                            <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="profile-description">
+                    <h2 class="text-xl font-semibold">Iqbal Hossen</h2>
+                    <p class="flex">Iqbal Hossen <img class="w-8" src="https://cdn-icons-png.flaticon.com/128/6784/6784655.png" alt=""></p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="script/index.js"></script>
+</body>
+</html>

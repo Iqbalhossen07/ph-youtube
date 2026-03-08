@@ -37,14 +37,14 @@ const displayVideos = (videos) => {
     videos.forEach(video => {
         const videoDiv = document.createElement('div');
         videoDiv.innerHTML = `
-          <div class="card bg-base-100 px-0 shadow-md">
+          <div class="card bg-base-100 w-96 px-0">
             <figure class="relative">
                 <img
                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                 alt="Shoes" />
                 <span class="absolute text-white bottom-2 right-2 bg-black px-2 rounded-md">3hr 36 Minutes</span>
             </figure>
-            <div class="flex gap-4 mt-5 p-4">
+            <div class="flex gap-4 mt-5">
                 <div class="profile">
                     <div class="avatar">
                         <div class="ring-primary ring-offset-base-100 w-8 rounded-full ring-2 ring-offset-2">
@@ -54,7 +54,7 @@ const displayVideos = (videos) => {
 
                 </div>
                 <div class="profile-description">
-                    <h2 class="text-xl font-semibold">${video.title}</h2>
+                    <h2 class="text-xl font-semibold">Iqbal Hossen</h2>
                     <p class="flex gap-2 text-slate-400">Iqbal Hossen <img class="w-6" src="https://cdn-icons-png.flaticon.com/128/6784/6784655.png" alt=""></p>
                     <p class="text-slate-400">111k Views</p>
                 </div>
@@ -62,7 +62,7 @@ const displayVideos = (videos) => {
         </div>
 
         `;
-        videoContainer.appendChild(videoDiv);
+        
         
     });
 };
