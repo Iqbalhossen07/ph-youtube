@@ -5,35 +5,19 @@ const categoryDataLoad = () => {
       .then((data) => displayCategories(data.categories));
 }
 
-
-// background for active button
-
-const removeBgActiveButton = () => {
-    const activeButton = document.getElementsByClassName('active');
-    for (let button of activeButton) {
-        button.classList.remove('active')
-    }
-    console.log(activeButton)
-    // activeButton.classList.remove('active');
-}
+// background for 
 
 // video data loaded
-const loadVideos = (searchText = "") => {
-    fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`)
+const loadVideos = () => {
+    fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
       .then((res) => res.json())
-      .then((data) => {
-        removeBgActiveButton();
-
-        document.getElementById("all-btn").classList.add("active");
-        displayVideos(data.videos);
-      });
+      .then((data) => displayVideos(data.videos));
 }
 
 const loadCategoryVideos = (id) => {
     fetch(`https://openapi.programming-hero.com/api/phero-tube/category/${id}`)
       .then((res) => res.json())
         .then((data) => {
-            removeBgActiveButton();
             const clickButton = document.getElementById(`btn-${id}`)
             clickButton.classList.add("active")
             // console.log(clickButton)
@@ -55,44 +39,6 @@ const displayCategories = (categories) => {
 
         categoryContainer.append(categoryDiv)
      }
-    
-    
-}
-
-// video detail
-
-const loadVideoDetails = (videoId) => {
-    fetch(
-      `https://openapi.programming-hero.com/api/phero-tube/video/${videoId}`,
-    )
-      .then((res) => res.json())
-      .then((data) => displayVideoDetails(data.video));
-    
-    // console.log(videoId)
-    
-}
-
-// display video details
-
-const displayVideoDetails = (video) => {
-    document.getElementById("show_modal").showModal();
-    const modalDiv = document.getElementById("modal_div");
-    modalDiv.innerHTML = `
-    <div class="card bg-base-100 image-full  shadow-sm">
-  <figure>
-    <img class="w-full "
-      src="${video.authors[0].profile_picture}"
-      alt="Shoes" />
-  </figure>
-  <div class="card-body">
-    <h2 class="card-title">Card Title</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
-</div>
-    `;
     
     
 }
@@ -141,8 +87,6 @@ const displayVideos = (videos) => {
                     <p class="text-slate-400">${video.others.views} Views</p>
                 </div>
             </div>
-
-            <button onclick="loadVideoDetails('${video.video_id}')" class="btn btn-success">View Details</button>
         </div>
 
         `;
@@ -152,14 +96,5 @@ const displayVideos = (videos) => {
 };
 
 
-
-document.getElementById("search-input").addEventListener("keyup", (e) => {
-    const input = e.target.value;
-    loadVideos(input);
-    
-})
-
-
-
 categoryDataLoad();
-loadVideos();
+// loadVideos();

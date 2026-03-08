@@ -18,14 +18,14 @@ const removeBgActiveButton = () => {
 }
 
 // video data loaded
-const loadVideos = (searchText = "") => {
-    fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`)
+const loadVideos = () => {
+    fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
       .then((res) => res.json())
-      .then((data) => {
-        removeBgActiveButton();
+        .then((data) => {
+            removeBgActiveButton();
 
-        document.getElementById("all-btn").classList.add("active");
-        displayVideos(data.videos);
+            document.getElementById('all-btn').classList.add('active');
+          displayVideos(data.videos);
       });
 }
 
@@ -153,11 +153,7 @@ const displayVideos = (videos) => {
 
 
 
-document.getElementById("search-input").addEventListener("keyup", (e) => {
-    const input = e.target.value;
-    loadVideos(input);
-    
-})
+document.get
 
 
 

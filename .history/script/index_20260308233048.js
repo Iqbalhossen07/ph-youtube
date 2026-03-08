@@ -18,14 +18,14 @@ const removeBgActiveButton = () => {
 }
 
 // video data loaded
-const loadVideos = (searchText = "") => {
-    fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`)
+const loadVideos = () => {
+    fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
       .then((res) => res.json())
-      .then((data) => {
-        removeBgActiveButton();
+        .then((data) => {
+            removeBgActiveButton();
 
-        document.getElementById("all-btn").classList.add("active");
-        displayVideos(data.videos);
+            document.getElementById('all-btn').classList.add('active');
+          displayVideos(data.videos);
       });
 }
 
@@ -62,11 +62,9 @@ const displayCategories = (categories) => {
 // video detail
 
 const loadVideoDetails = (videoId) => {
-    fetch(
-      `https://openapi.programming-hero.com/api/phero-tube/video/${videoId}`,
-    )
-      .then((res) => res.json())
-      .then((data) => displayVideoDetails(data.video));
+    fetch(`https://openapi.programming-hero.com/api/phero-tube/video/${videoId}`)
+        .then(res => res.json())
+    .then(data=>console.log(data.video))
     
     // console.log(videoId)
     
@@ -74,28 +72,7 @@ const loadVideoDetails = (videoId) => {
 
 // display video details
 
-const displayVideoDetails = (video) => {
-    document.getElementById("show_modal").showModal();
-    const modalDiv = document.getElementById("modal_div");
-    modalDiv.innerHTML = `
-    <div class="card bg-base-100 image-full  shadow-sm">
-  <figure>
-    <img class="w-full "
-      src="${video.authors[0].profile_picture}"
-      alt="Shoes" />
-  </figure>
-  <div class="card-body">
-    <h2 class="card-title">Card Title</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
-</div>
-    `;
-    
-    
-}
+const 
 
 // video data display
 
@@ -152,14 +129,5 @@ const displayVideos = (videos) => {
 };
 
 
-
-document.getElementById("search-input").addEventListener("keyup", (e) => {
-    const input = e.target.value;
-    loadVideos(input);
-    
-})
-
-
-
 categoryDataLoad();
-loadVideos();
+// loadVideos();

@@ -19,7 +19,7 @@ const removeBgActiveButton = () => {
 
 // video data loaded
 const loadVideos = (searchText = "") => {
-    fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`)
+    fetch(`https://openapi.programming-hero.com/api/phero-tube/videos/title=${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         removeBgActiveButton();
@@ -162,4 +162,4 @@ document.getElementById("search-input").addEventListener("keyup", (e) => {
 
 
 categoryDataLoad();
-loadVideos();
+// loadVideos();
